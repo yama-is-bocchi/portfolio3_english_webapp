@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <title>ビュー画面</title>
+    <link href="https://fonts.googleapis.com/earlyaccess/kokoro.css" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+<div class="imgt">
+
+    <span class="title_font">単語一覧</span>
+
+</div>
+
+
+<body bgcolor="#090909">
+
+    <div class="imgt">
+        <span class="view_font">
+            {% if word_list %}
+            {% for word in word_list %}
+            <li>
+                {{ word.word }}:
+                {{ word.imi }}
+            </li>
+            {% endfor %}
+            {% endif %}
+
+        </span>
+    </div>
+</body>
+
+<body bgcolor="#090909">
+
+    </html>

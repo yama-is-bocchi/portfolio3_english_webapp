@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <title>ビュー画面</title>
+    <link href="https://fonts.googleapis.com/earlyaccess/kokoro.css" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+<div class="imgt">
+
+    <span class="title_font">単語一覧</span>
+
+</div>
+
+<body bgcolor="#090909">
+    <div class="imgt">
+        <span class="view_font">
+            {% if word_list %}
+            {% for word in word_list %}
+            <li>
+                {{ word.word }}:
+                {{ word.imi }}
+                <button class="edit_btn" onclick="location.href='{% url 'webapp:updateword' word.id %}'" style="cursor:pointer">編集</button>
+                <button class="edit_btn" onclick="location.href='{% url 'webapp:deleteword' word.id %}'" style="cursor:pointer">削除</button>
+            </li>
+            {% endfor %}
+            {% endif %}
+        </span>
+    </div>
+</body>
+
+<body bgcolor="#090909">
+    <div class="btn_space">
+    <td><a href="{% url 'webapp:setting_page'%}" class="btn_01">戻る</a></td>
+    </div>
+      
+</html>

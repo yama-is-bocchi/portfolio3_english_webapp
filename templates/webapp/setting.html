@@ -1,0 +1,31 @@
+    {% load static %} 
+<!DOCTYPE html>
+<html lang="ja">
+
+    <head>
+        <title >メイン画面</title>
+        <link href="https://fonts.googleapis.com/earlyaccess/kokoro.css" rel="stylesheet">
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+      </head>
+   
+    <body bgcolor="#090909">
+        <div class="imgt">
+            <div class="btn_space">
+                <span class="title_font">設定</span>
+            </div>
+            <div class="setting_btn_space">
+                <a href="{% url 'webapp:add_word_page'%}" class="btn_01">追加</a>
+            </div>
+            <div class="setting_btn_space">
+                <a href="{% url 'webapp:edit_word_page'%}"  class="btn_01" >編集</a>
+            </div>
+            <div class="setting_btn_space">
+                <a href="{% url 'webapp:view_word_page'%}" class="btn_01" >一覧</a>
+            </div>
+            <div class="setting_btn_space">
+                <a href="{% url 'webapp:index'%}" class="btn_01" >戻る</a>
+            </div>
+
+
+        </div>
+    </body>

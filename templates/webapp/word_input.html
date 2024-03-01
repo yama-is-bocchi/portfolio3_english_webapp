@@ -1,0 +1,48 @@
+{% load static %}
+{% load widget_tweaks %}
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <title>単語入力フォーム</title>
+    <link href="https://fonts.googleapis.com/earlyaccess/kokoro.css" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+<body bgcolor="#090909">
+    <div class="imgt">
+        <form method="POST">
+            {% csrf_token %}
+            <p>
+            <div class="btn_space">
+                <span class="word_font">
+                    <label for "id_name">英単語<br></label>
+                    {{form.word|add_class:"word_input"}}
+                </span>
+            </div>
+            </p>
+
+            <p>
+            <div class="btn_space">
+                <span class="word_font">
+                    <label for "id_name">意味<br></label>
+                    {{form.imi|add_class:"word_input"}}
+                </span>
+            </div>
+            </p>
+
+            <table align="center">
+                <tr>
+                    <td><a href="{% url 'webapp:setting_page'%}" class="btn_01">戻る</a></td>
+                    <td><button class="btn_save" type="submit" name="btn" style="cursor:pointer">送信</button></td>
+                </tr>
+            </table>
+
+
+        </form>
+    </div>
+
+
+</body>
+
+</html>

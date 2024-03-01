@@ -1,0 +1,183 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <title>ゲーム画面</title>
+    <link href="https://fonts.googleapis.com/earlyaccess/kokoro.css" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+{% for word in word_list|slice:"3:4" %}
+
+<body bgcolor="#090909">
+
+    <div id="all">
+        <div class="timer_pos">
+        <span class="game_nomal" id="timer">8</span>
+        </div>
+        <div class="imgt">
+
+            <div class="btn_space">
+                        
+                <li>
+                    <span class="word_font">
+                        {{word.word}}
+                    </span>
+                    
+                </li>
+            </div>
+        </div>
+
+
+        <div class="imgt">
+            <div class="game_space">
+                <article>
+                    {% if word_list %}
+                    {% for imi in word_list|slice:"4:8" %}
+                    <div class="setting_btn_space">
+                        {% if imi.id == word.id %}
+                
+                        <button class="game_btn" name="btn" style="cursor:pointer">
+                            <span class="game_font">
+                                {{imi.imi}}
+                            </span>
+                        </button>
+                
+                        {% else %}
+                        <button class="game_btn" name={{imi.imi}} style="cursor:pointer">
+                            <span class="game_font">{{imi.imi}}
+                            </span>
+                        </button>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </article>
+            </div>
+        </div>
+
+    </div>
+    <div style="display: none;" id="ans">
+        <div class="imgt">
+            <div class="btn_space">
+                <span class="ans_font">
+                    正解〇
+                </span>
+            </div>
+            <span class="word_font" >
+                {{word.word}}:{{word.imi}}
+                <div class="btn_space">
+                <a href="{% url 'webapp:start_game'%}" class="btn_01">次</a>
+                </div>
+            </span>
+        </div>
+    </div>
+
+    <div style="display: none;" id="none">
+        <div class="imgt">
+            <div class="btn_space">
+                <span class="none_font">
+                    不正解×
+                </span>
+            </div>
+            <span class="word_font">
+                {{word.word}}:{{word.imi}}
+                <div class="btn_space" id="edit_area"></div>
+                <div class="btn_space">
+                <a href="{% url 'webapp:start_game'%}" class="btn_01">次</a>
+            </div>
+            </span>
+            
+        </div>
+    </div>
+
+    
+    <script>
+        var mojiretu = new Array(3);
+        var mojiretu_eng = new Array(3);
+        let count = 0;
+        {% for imi in word_list|slice:"0:3" %}
+        mojiretu_eng[count] = "{{imi.word}}"
+        mojiretu[count] = "{{imi.imi}}";
+        count++;
+        {% endfor %}
+        let switchBtn = document.getElementsByName("btn")[0];
+        let switchBtn_one = document.getElementsByName(mojiretu[0])[0];
+        let switchBtn_two = document.getElementsByName(mojiretu[1])[0];
+        let switchBtn_three = document.getElementsByName(mojiretu[2])[0];
+        let box = document.getElementById('all');
+        let ans = document.getElementById('ans');
+        let none = document.getElementById('none');
+        let sec = document.getElementById('timer');
+        var timer_count=8;
+        //styleのdisplayを変更する関数
+        let changeElement = (el) => {
+            if (el.style.display == '') {
+                el.style.display = 'none';
+            } else {
+                el.style.display = '';
+            }
+        }
+        var countup= function(){
+            timer_count--;
+            if(timer_count<4){
+        sec.style.color="#ff0000";
+        sec.style.fontSize="12em";
+            }
+            sec.innerHTML=timer_count;
+      
+        }
+
+setInterval(countup,1000)
+
+        //ゲームの制限時間
+        game_timer = window.setTimeout(function () {
+            changeElement(box);
+            changeElement(none);
+        }, 8000);
+
+        //上記関数をボタンクリック時に実行
+        switchBtn.addEventListener('click', () => {
+            window.clearTimeout(game_timer);
+            changeElement(box);
+            changeElement(ans);
+
+        });
+
+        //上記関数をボタンクリック時に実行
+        switchBtn_one.addEventListener('click', () => {
+            window.clearTimeout(game_timer);
+            changeElement(box);
+            changeElement(none);
+            var str = mojiretu_eng[0] + ":" + mojiretu[0];
+            document.getElementById('edit_area').textContent = str;
+            
+        });
+        //上記関数をボタンクリック時に実行
+        switchBtn_two.addEventListener('click', () => {
+            window.clearTimeout(game_timer);
+            changeElement(box);
+            changeElement(none);
+            var str = mojiretu_eng[1] + ":" + mojiretu[1];
+            document.getElementById('edit_area').textContent = str;
+           
+        });
+
+        //上記関数をボタンクリック時に実行
+        switchBtn_three.addEventListener('click', () => {
+            window.clearTimeout(game_timer);
+            changeElement(box);
+            changeElement(none);
+            var str = mojiretu_eng[2] + ":" + mojiretu[2];
+            document.getElementById('edit_area').textContent = str;
+            
+        });
+    </script>
+</body>
+{% endfor %}
+
+<body bgcolor="#090909">
+
+</html>
+
