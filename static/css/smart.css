@@ -1,0 +1,177 @@
+div.imgt {
+    color: #00ff15;
+    text-align: center;
+}
+
+div.btn_space {
+    padding: 90px;
+}
+
+div.game_btn_space {
+    padding: 2px;
+}
+
+div.setting_btn_space {
+    padding: 28px;
+}
+
+div.game_space {
+    padding: 80px;
+}
+
+.btn_01 {
+    cursor: pointer;
+    background-color: #151515;
+    display: block;
+    text-decoration: none;
+    font-family: "Kokoro";
+    text-align: center;
+    width: 120px;
+    margin: auto;
+    padding: 1rem 4rem;
+    font-weight: bold;
+    color: #00ff15;
+    border-bottom: 2px solid #00ff15;
+    border-radius: 100vh;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, .3);
+    -webkit-box-shadow: 0 2px 7px rgba(0, 0, 0, .3);
+    transition: 0.5s;
+}
+
+.btn_01:hover {
+    color: #151515;
+    background: #00ff15;
+    border-bottom: 2px solid #151515;
+    transform: translateY(3px);
+}
+
+span.ans_font {
+    font-family: "Kokoro";
+    font-size: 3em;
+    color: #fa0606;
+}
+
+span.none_font {
+    font-family: "Kokoro";
+    font-size:3em;
+    color: #061efa;
+}
+
+span.title_font {
+    font-family: "Kokoro";
+    font-size: 2.3em;
+    color: #00ff15;
+}
+
+span.word_font {
+    font-family: "Kokoro";
+    font-size: 2.2em;
+    color: #00ff15;
+}
+
+span.game_font {
+    font-family: "Kokoro";
+    font-size: 1.2em;
+    color: #00ff15;
+}
+
+.word_input {
+    font-family: "Kokoro";
+    font-size: 1em;
+    color: #000000;
+
+}
+
+
+div.timer_pos {
+
+    top: 250px;
+    left: 70px;
+    position: absolute;
+}
+
+span.game_nomal {
+    font-size: 5em;
+    color: #00ff15;
+}
+
+
+button.btn_save {
+
+    cursor: pointer;
+    background-color: #151515;
+    display: block;
+    text-decoration: none;
+    font-family: "Kokoro";
+    text-align: center;
+    width: 250px;
+    margin: auto;
+    padding: 1rem 4rem;
+    font-weight: bold;
+    color: #00ff15;
+    border-bottom: 2px solid #00ff15;
+    border-radius: 100vh;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, .3);
+    -webkit-box-shadow: 0 2px 7px rgba(0, 0, 0, .3);
+    transition: 0.5s;
+}
+
+button.btn_save:hover {
+    color: #151515;
+    background: #00ff15;
+    border-bottom: 2px solid #151515;
+    transform: translateY(3px);
+}
+
+button.edit_btn {
+    cursor: pointer;
+    background-color: #151515;
+    font-family: "Kokoro";
+    text-align: center;
+    width: 80px;
+    margin: auto;
+    font-weight: bold;
+    color: #00ff15;
+    border-bottom: 2px solid #00ff15;
+    border-radius: 100vh;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, .3);
+    -webkit-box-shadow: 0 2px 7px rgba(0, 0, 0, .3);
+    transition: 0.5s;
+}
+
+button.edit_btn:hover {
+    color: #151515;
+    background: #00ff15;
+    border-bottom: 2px solid #151515;
+    transform: translateY(3px);
+}
+
+button.game_btn {
+    cursor: pointer;
+    background-color: #151515;
+    font-family: "Kokoro";
+    width: 370px;
+    height: 60px;
+    margin: auto;
+    font-weight: bold;
+    color: #00ff15;
+    border-bottom: 2px solid #00ff15;
+    border-radius: 100vh;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, .3);
+    -webkit-box-shadow: 0 2px 7px rgba(0, 0, 0, .3);
+    transition: 0.5s;
+}
+
+button.game_btn:hover {
+    color: #151515;
+    background: rgb(4, 42, 124);
+    border-bottom: 2px solid #151515;
+    transform: translateY(3px);
+}
+
+
+.view_font {
+    font-family: "Kokoro";
+    font-size: 1em;
+    color: #00ff15;
+}
